@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon/iconmusic_1.png" type="image/x-icon"/>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="javascrips.js" href="scrips.js">
+    <title>Nhạc Của Bạn</title>
+</head>
+
+<body>
+    <header>
+        <table>
+          <tr>
+            <td class="item_1">
+              <div class="logo"><img src= "/Nhạc Của Bạn - Your Music/icons/iconmusic_1.jpg" alt="MusicWorld">
+              <span class="brand-name">
+                <span class="n">N</span>
+                <span class="c">C</span>
+                <span class="b">B</span>
+              </span> 
+              <p>nhaccuaban<sup>&copy;</sup></p>
+              </div>
+            </td>
+            <td class="item_2">
+              <h1>Nhạc Của Bạn</h1>
+              <p>Thư viện nhạc của bạn, mọi lúc mọi nơi 🎼</p>
+            </td>  
+          </tr>   
+        </table>  
+        <nav class="menu">
+          <div class="dropdownall">
+            <a href="#">🏠Trang Chủ</a>
+            <div class="dropdown-container">
+            <a href="#">Bài Hát Mới</a> 
+            <div class="dropdown1">
+            <a href="#">Xuân Này Con Không Về</a>
+            <a href="#">Thiên lý ơi</a>
+            <a href="#">Vợ người ta</a>
+            <a href="#">Con Cò</a>
+            <a href="#">Nhạt</a>
+            </div>
+            </div> 
+            <div class="dropdown-container">
+            <a href="#">Thể Loại</a>
+            <div class="dropdown2">
+            <a href="#">Nhạc Trẻ</a>
+            <a href="#">Rock</a>
+            <a href="#">Remix</a>
+            <a href="#">Rap Việt</a>
+            <a href="#">Nhạc Trịnh</a>
+            </div>
+            </div>
+            <div class="dropdown-container">
+              <a href="#">Top 100</a>
+              <div class="dropdown3">
+              <a href="#">Nhạc Trẻ</a>
+              <a href="#">Rock</a>
+              <a href="#">Remix</a>
+              <a href="#">Rap Việt</a>
+              <a href="#">Nhạc Trịnh</a>
+              </div>
+              </div>
+          </div>  
+          <div class="search-box">
+            <input type="text" id="search" placeholder="Nhập từ khóa...">
+            <button onclick="searchFunction()">🔍</button>
+        </div>
+        <div class="Login">
+          <a href="#" onclick="openModal('login')">Đăng nhập</a>
+          <span>&nbsp;/&nbsp;</span>
+          <a href="#" onclick="openModal('register')">Đăng ký</a>
+        </div>
+        <div id="authModal" class="modal">
+          <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+               <!-- Form Đăng Nhập -->
+               <div class="form-container login-form">
+                <img class="Img-Login" src="/Nhạc Của Bạn - Your Music/icons/iconmusic_1.jpg">
+                <h2 id="modal-title">Đăng Nhập</h2>
+                <form>
+                    <div class="input-group">
+                        <label for="login-username"><img src="/Nhạc Của Bạn - Your Music/imgs/DangNhap.jpg">&nbsp;Tên đăng nhập:</label>
+                        <input type="text" id="login-username" placeholder="Nhập tên đăng nhập" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password"><img src="/Nhạc Của Bạn - Your Music/imgs/MatKhau.jpg">&nbsp;Mật khẩu:</label>
+                        <input type="password" id="login-password" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="show-password">
+                      <input type="checkbox" id="show-login-password">
+                      <label for="show-login-password">Hiện mật khẩu</label>
+                  </div>
+                  <script>
+                    document.getElementById("show-login-password").addEventListener('change', function () {
+                        let passwordField = document.getElementById('login-password');
+                        passwordField.type = this.checked ? 'text' : 'password';
+                    });
+                </script>
+                    <div class="forgot-password">
+                        <a href="#">Quên mật khẩu?</a>
+                    </div>
+                    <button type="submit" class="btn-login">Đăng nhập</button>
+                </form>
+                <p class="register-link">Chưa có tài khoản? <a href="#">Đăng ký</a></p>
+            </div>
+           <!--Form Forgot Password-->
+           <div class="form-container forgot-password-form">
+            <img class="Img-Login" src="/Nhạc Của Bạn - Your Music/icons/iconmusic_1.jpg">
+            <h2>Quên Mật Khẩu</h2>
+            <form>
+                <div class="input-group">
+                    <label for="forgot-username"><img src="/Nhạc Của Bạn - Your Music/imgs/DangNhap.jpg">&nbsp;Tên đăng nhập:</label>
+                    <input type="text" id="forgot-username" placeholder="Nhập tên đăng nhập" required>
+                </div>
+                <div class="input-group">
+                    <label for="new-password"><img src="/Nhạc Của Bạn - Your Music/imgs/MatKhau.jpg">&nbsp;Mật khẩu mới:</label>
+                    <input type="password" id="new-password" placeholder="Nhập mật khẩu mới" required>
+                </div>
+                <div class="show-password">
+                    <input type="checkbox" id="show-new-password">
+                    <label for="show-new-password">Hiện mật khẩu</label>
+                </div>
+                <div class="input-group">
+                    <label for="confirm-password"><img src="/Nhạc Của Bạn - Your Music/imgs/MatKhau.jpg">&nbsp;Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm-password" placeholder="Nhập lại mật khẩu mới" required>
+                </div>
+                <div class="show-password">
+                    <input type="checkbox" id="show-confirm-password">
+                    <label for="show-confirm-password">Hiện mật khẩu</label>
+                </div>
+                <button type="submit" class="btn-login">Xác nhận</button>
+            </form>
+        </div>
+            <!--Nhấn Quên Mật Khẩu hiện bảng Quên Mật Khẩu và ẩn form Đăng Nhập-->
+           <script>
+            </script>
+      <!-- Form Đăng Ký -->
+      <div class="form-container register-form">
+        <img class="Img-Login" src="/Nhạc Của Bạn - Your Music/icons/iconmusic_1.jpg">
+        <h2 id="modal-title">Đăng Kí</h2>
+        <form>
+            <div class="input-group">
+                <label for="register-fullname"><img src="/Nhạc Của Bạn - Your Music/imgs/DangNhap.jpg">&nbsp;Họ và tên:</label>
+                <input type="text" id="register-fullname" placeholder="Nhập họ và tên" required>
+                <script>
+                  document.getElementById("register-fullname").addEventListener("input", function () {
+                      this.value = this.value.replace(/[^a-zA-ZÀ-ỹ\s]/g, ""); // Chỉ cho nhập chữ cái và khoảng trắng
+                  });
+                  </script>
+            </div>
+            <div class="input-group">
+              <label for="register-dob"><img src="/Nhạc Của Bạn - Your Music/imgs/Date.jpg">&nbsp;Ngày Tháng Năm Sinh:</label>
+              <input type="date" id="register-dob" required>
+              <script>
+                 document.addEventListener("DOMContentLoaded", function () {
+                let dobField = document.getElementById("register-dob");
+                let today = new Date();
+                let minBirthDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate()); // Giới hạn 100 tuổi
+                let maxBirthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()); // Phải đủ 18 tuổi
+                // Giới hạn ngày trong input
+                dobField.setAttribute("min", minBirthDate.toISOString().split("T")[0]); 
+                dobField.setAttribute("max", maxBirthDate.toISOString().split("T")[0]); 
+            });
+              </script>         
+          </div>
+            <div class="input-group">
+                <label for="register-email"><img src="/Nhạc Của Bạn - Your Music/imgs/Mail.jpg">&nbsp;Email:</label>
+                <input type="email" id="register-email" placeholder="Nhập email" required>
+                <script>
+                  document.addEventListener("DOMContentLoaded", function () {
+                      let emailField = document.getElementById("register-email");
+                      // Mặc định hiển thị @ khi load trang
+                      emailField.value = "@";
+                      emailField.addEventListener("input", function (event) {
+                          let value = emailField.value;
+                  
+                          // Nếu @ bị xóa, giữ lại
+                          if (!value.includes("@")) {
+                              value = "@";
+                          }
+                          // Chia thành 2 phần: trước và sau @
+                          let parts = value.split("@");
+                          let beforeAt = parts[0].replace(/[^a-zA-Z0-9]/g, ""); // Chỉ chữ và số trước @
+                          let afterAt = parts.length > 1 ? parts[1].replace(/[^a-zA-Z0-9.]/g, "") : ""; // Chỉ chữ, số và dấu chấm sau @
+                          // Cập nhật giá trị input
+                          emailField.value = beforeAt + "@" + afterAt;
+                          // Đặt con trỏ đúng vị trí khi xóa ký tự
+                          let cursorPos = emailField.selectionStart;
+                          if (cursorPos <= beforeAt.length) {
+                              emailField.selectionStart = emailField.selectionEnd = beforeAt.length + 1;
+                          }
+                      });
+                      // Đặt con trỏ đúng vị trí khi focus vào ô input
+                      emailField.addEventListener("focus", function () {
+                          setTimeout(() => {
+                              if (emailField.value === "@") {
+                                  emailField.selectionStart = 0;
+                                  emailField.selectionEnd = 0;
+                              }
+                          }, 0);
+                      });
+                  });
+                  </script>
+            </div>
+            <div class="input-group">
+              <label for="register-phone"><img src="/Nhạc Của Bạn - Your Music/imgs/Phone.jpg">&nbsp;Số điện thoại:</label>
+              <input type="tel" id="register-phone" placeholder="Nhập số điện thoại" 
+              required title="Số điện thoại phải có từ 10 đến 15 chữ số">
+              <p id="phone-error" style="color: red; display: none;">Số điện thoại phải có đúng 10 chữ số sau +84</p>
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let phoneField = document.getElementById("register-phone");
+            
+                    // Mặc định hiển thị +84 khi load trang
+                    phoneField.value = "+84 ";
+            
+                    // Ngăn xóa +84 và không cho nhập chữ
+                    phoneField.addEventListener("input", function () {
+                        if (!phoneField.value.startsWith("+84 ")) {
+                            phoneField.value = "+84 ";}
+                        // Chỉ cho nhập số sau +84
+                        phoneField.value = phoneField.value.replace(/[^0-9+ ]/g, ""); 
+                    });
+                    // Đặt con trỏ sau số khi click vào
+                    phoneField.addEventListener("focus", function () {
+                        setTimeout(() => {
+                            phoneField.selectionStart = phoneField.value.length;
+                            phoneField.selectionEnd = phoneField.value.length;
+                        }, 0);
+                    });
+                });
+            </script>  
+           </div>
+           <!--Nhập mật khẩu-->
+           <div class="input-group">
+             <label for="register-password"><img src="/Nhạc Của Bạn - Your Music/imgs/MatKhau.jpg">&nbsp;Mật khẩu:</label>
+             <input type="password" id="register-password" placeholder="Nhập mật khẩu" required>
+          </div>
+          <div class="show-password">
+            <input type="checkbox" id="show-register-password">
+            <label for="show-register-password">Hiện mật khẩu</label>
+          </div> 
+          <!-- Xác Nhận lại mật khẩu -->
+          <div class="input-group">
+            <label for="confirm-password"><img src="/Nhạc Của Bạn - Your Music/imgs/MatKhau.jpg">&nbsp;Xác nhận lại mật khẩu:</label>
+            <input type="password" id="confirm-password" placeholder="Nhập mật khẩu" required>
+          </div>
+         <div class="show-password">
+           <input type="checkbox" id="show-confirm-password">
+           <label for="show-confirm-password">Hiện mật khẩu</label>
+         </div> 
+            <button type="submit" class="btn-login">Đăng ký</button>
+          </form>
+            <p class="register-link">Đã có tài khoản? <a href="#">Đăng nhập</a></p>
+      </div>
+      </div>
+      <script>
+    function togglePassword(checkboxId, passwordId) {
+    let checkbox = document.getElementById(checkboxId);
+    let passwordField = document.getElementById(passwordId);
+
+    checkbox.addEventListener("change", function () {
+        passwordField.type = this.checked ? "text" : "password";
+    });
+
+    checkbox.addEventListener("mouseleave", function () {
+        this.checked = false;
+        passwordField.type = "password";
+    });
+}
+
+// Kích hoạt chức năng hiện/ẩn mật khẩu cho cả 3 ô
+togglePassword("show-login-password", "login-password");       
+togglePassword("show-register-password", "register-password"); 
+togglePassword("show-confirm-password", "confirm-password");   
+togglePassword("show-new-password", "new-password");
+togglePassword("show-confirm-password", "confirm-password");
+
+// Mở modal đăng nhập/đăng ký
+function openModal(type) {
+    let modal = document.getElementById("authModal");
+    let loginForm = document.querySelector(".login-form");
+    let registerForm = document.querySelector(".register-form");
+
+    modal.style.display = "block";
+
+    if (type === "login") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+    } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+    }
+}
+
+// Đóng modal
+function closeModal() {
+    let modal = document.getElementById("authModal");
+    modal.style.display = "none";
+    modal.classList.remove("show-login", "show-register");
+}
+
+// Đóng modal khi bấm ra ngoài
+window.onclick = function(event) {
+    let modal = document.getElementById("authModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+};
+      </script>
+    <!-- Nhấn Đăng Nhập ra Đăng Kí và ngược lại -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    // Chuyển từ form đăng nhập sang đăng ký
+    document.querySelector(".register-link a").addEventListener("click", function (event) {
+        event.preventDefault(); // Ngăn chặn tải lại trang
+        document.querySelector(".login-form").style.display = "none";
+        document.querySelector(".register-form").style.display = "block";
+    });
+
+    // Chuyển từ form đăng ký sang đăng nhập
+    document.querySelector(".register-form .register-link a").addEventListener("click", function (event) {
+        event.preventDefault();
+        document.querySelector(".register-form").style.display = "none";
+        document.querySelector(".login-form").style.display = "block";
+    });
+});
+
+      </script>
+
+      </nav>
+
+    <div class="container">
+        <h2>Danh Sách Bài Hát</h2>
+        <div class="song-list">
+            <div class="song">
+                <img src="/Nhạc Của Bạn - Your Music/imgs/MatKetNoi.jpg" alt="Hình bài hát">
+                <div class="song-title">Mất Kết Nối</div>
+                <div class="song-artist">Dương Domic</div>
+            </div>
+            <div class="song">
+                <img src="/Nhạc Của Bạn - Your Music/imgs/Phu.jpg" alt="Hình bài hát">
+                <div class="song-title">Thiên Phú Ơi</div>
+                <div class="song-artist">Nguyên Cao Thiện Phú</div>
+            </div>
+            <div class="song">
+                <img src="/Nhạc Của Bạn - Your Music/imgs/Khoa.jpg" alt="Hình bài hát">
+                <div class="song-title">Đời Là Bể Khổ</div>
+                <div class="song-artist">Huỳnh Thái Khoa</div>
+            </div>
+            <div class="song">
+                <img src="https://via.placeholder.com/200" alt="Hình bài hát">
+                <div class="song-title">Tên bài hát 4</div>
+                <div class="song-artist">Ca sĩ 4</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><marquee behavior="" direction="right">&copy; 2025 Nhạc Của Bạn. Tất cả các quyền được bảo lưu.</marquee></p>
+    </footer>
+   
+</body>
+</html> 
